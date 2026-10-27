@@ -196,23 +196,37 @@
       if (box) { box.style.display = "none"; }
     }
 
-    (function() {
-      var currentCount = parseInt(localStorage.getItem('tiramreview_hits') || '1', 10);
-      
-      if (!sessionStorage.getItem('tiramreview_viewed')) {
-        currentCount++;
-        localStorage.setItem('tiramreview_hits', currentCount);
-        sessionStorage.setItem('tiramreview_viewed', 'true');
-      }
-      
-      var countStr = ('00000' + currentCount).slice(-5);
-      
-      for (var i = 0; i < 5; i++) {
-        var el = document.getElementById('cnt' + i);
-        if (el) el.innerText = countStr.charAt(i);
-      }
+    // Cleaned up and completed counter function
+    (async function() {
+        const namespace = "tiramreview-yourname-48271"; // Remember to change "yourname" to make it unique!
+        const counterName = "visitor-count";
+        const baseURL = "https://jasoncameron.dev";
+
+        try {
+            // Hit endpoint to force increment on every page load
+            const response = await fetch(`${baseURL}/hit/${namespace}/${counterName}`);
+            
+            if (!response.ok) {
+                throw new Error("Visitor counter request failed");
+            }
+
+            const data = await response.json();
+            const count = Number(data.value);
+
+            if (!Number.isFinite(count) || count < 0) {
+                throw new Error("Invalid counter value");
+            }
+
+            const countStr = String(count).padStart(5, "0").slice(-5);
+            
+            for (let i = 0; i < 5; i++) {
+                const el = document.getElementById("cnt" + i);
+                if (el) el.textContent = countStr[i];
+            }
+        } catch (error) {
+            console.error("Could not load visitor counter:", error);
+        }
     })();
   </script>
-
 </body>
 </html>
