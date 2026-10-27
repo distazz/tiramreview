@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tiramreviews</title>
+  <style>
+    /* RETRO RASTER FILTER SYSTEM */
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #F5E7D3;
+      -webkit-font-smoothing: none;
+      -moz-osx-font-smoothing: unset;
+      text-rendering: optimizeSpeed;
+      min-height: 100vh;
+      
+      /* 90s Internet Explorer Custom Scrollbars */
+      scrollbar-face-color: #D6DF76;
+      scrollbar-shadow-color: #4b241b;
+      scrollbar-highlight-color: #FFFFFF;
+      scrollbar-track-color: #F5E7D3;
+      scrollbar-arrow-color: #4b241b;
+    }
+
+    /* Modern browser custom scrollbar fallback (Chunky & Bevelled) */
+    ::-webkit-scrollbar { width: 16px; }
+    ::-webkit-scrollbar-track { background: #F5E7D3; border-left: 2px solid #4b241b; }
+    ::-webkit-scrollbar-thumb { background: #D6DF76; border: 2px outset #FFFFFF; }
+
+    /* Screen Wrapper: Forced origin structural anchoring to prevent dropping */
+    .retro-screen-filter {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 100vh;
+      filter: contrast(102%) brightness(98%) blur(0.2px);
+    }
+
+    /* Softened, Scaled-Up 90s CRT Screen Overlay */
+    .retro-screen-filter::after {
+      content: " ";
+      display: block;
+      position: fixed;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: 
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.02) 50%), 
+        linear-gradient(90deg, rgba(255, 0, 0, 0.015), rgba(0, 255, 0, 0.005), rgba(0, 0, 255, 0.015));
+      background-size: 100% 8px, 16px 100%;
+      z-index: 99999;
+      pointer-events: none;
+    }
+
+    /* Faux-3D Window Bevel System for true 90s UI texture */
+    .win-outset {
+      border-top: 3px solid #FFFFFF;
+      border-left: 3px solid #FFFFFF;
+      border-right: 3px solid #7F7F7F;
+      border-bottom: 3px solid #7F7F7F;
+    }
+    
+    .win-inset {
+      border-top: 3px solid #7F7F7F;
+      border-left: 3px solid #7F7F7F;
+      border-right: 3px solid #FFFFFF;
+      border-bottom: 3px solid #FFFFFF;
+    }
+
+    /* PERFECTED CHUNKY WEIGHT WITH SLIGHT INCREASE */
+    .chunky-link {
+      text-decoration: underline; 
+      color: #0000FF; 
+      font-family: 'Courier New', Courier, monospace; 
+      font-size: 18px; 
+      font-weight: bold; 
+      letter-spacing: 0.5px;
+      -webkit-text-stroke: 0.28px #0000FF;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="retro-screen-filter">
+
+    <!-- Outermost workspace box expanded to 1200px width -->
+    <table width="1200" border="0" align="center" cellpadding="35" cellspacing="0" style="margin-top: 40px; margin-bottom: 40px;">
+      <tr>
+        <td align="center" bgcolor="#F3E5D1" class="win-inset" style="border-width: 4px;">
+
+          <!-- Inner content lock container table set back to exactly 800px width -->
+          <table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td align="center">
+
+                <br>
+
+                <!-- RETRO MASTHEAD TITLE WITH RE-CALIBRATED STRETCH -->
+                <table width="95%" border="0" bgcolor="#4b241b" cellpadding="18" cellspacing="0" class="win-outset" style="border-width: 4px; cursor: pointer;" onclick="goHome();">
+                  <tr>
+                    <td align="center">
+                      <!-- Adjusted font-size up slightly, scaled back the transform stretching, and narrowed character tracking for a cleaner midpoint look -->
+                      <h1 style='margin: 10px 0; color: white; font-family: "Arial Black", "Impact", sans-serif; font-size: 3.2rem; font-weight: 900; line-height: 1; letter-spacing: 6px; transform: scaleY(0.85) scaleX(1.15); display: inline-block; text-shadow: 3px 3px #4c007e, 5px 5px #18004b; overflow-wrap: anywhere;'>
+                        TIRAMREVIEWS
+                      </h1>
+                    </td>
+                  </tr>
+                </table>
+
+                <br><br><br>
+                <hr size="4" width="95%" color="#4B241B" align="center" style="border-style: inset;">
+                <br><br><br>
+
+                <!-- NAVIGATION -->
+                <table width="85%" border="0" align="center" cellpadding="10" cellspacing="45">
+                  <tr>
+                    <td align="center" width="50%" bgcolor="#D6DF76" style="border: 3px outset #FFFFFF; padding: 12px 0;">
+                      <font face="Courier New, monospace" size="4">
+                        <a href="#" onclick="showSection('rankings'); return false;" class="chunky-link"><b>[ RANKINGS ]</b></a>
+                      </font>
+                    </td>
+                    <td align="center" width="50%" bgcolor="#D6DF76" style="border: 3px outset #FFFFFF; padding: 12px 0;">
+                      <font face="Courier New, monospace" size="4">
+                        <a href="#" onclick="showSection('reviews'); return false;" class="chunky-link"><b>[ REVIEWS ]</b></a>
+                      </font>
+                    </td>
+                  </tr>
+                </table>
+
+                <br><br>
+
+                <!-- CONTENT SECTION WITH INTEGRATED HAZARD WARNING BAR -->
+                <table id="comingSoonBox" width="90%" border="0" bgcolor="#FFF8E9" cellpadding="18" cellspacing="0" class="win-inset" style="display: none; border-width: 3px;">
+                  <tr>
+                    <td align="center">
+                      <!-- Retro Alert Accent -->
+                      <span style="background: #FFCC00; color: #000000; padding: 2px 8px; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; border: 1px solid #000000;">ALERT</span>
+                      <br><br>
+                      <font face="Courier New, monospace" size="4" color="#4C007E">
+                        <b><span id="comingSoonText"></span></b>
+                      </font>
+                    </td>
+                  </tr>
+                </table>
+
+                <br><br><br><br>
+                <hr size="2" width="100%" color="#4B241B">
+                <br>
+
+                <!-- FOOTER WITH FUNCTIONAL COUNTER -->
+                <table width="100%" border="0" cellpadding="5">
+                  <tr>
+                    <td align="center">
+                      <font face="Courier New, monospace" size="2">
+                        YOU ARE VISITOR NUMBER: 
+                        <table border="0" bgcolor="#000000" cellpadding="4" cellspacing="1" class="win-inset" style="display: inline-block; vertical-align: middle; border-color: #7F7F7F;">
+                          <tr>
+                            <td><font color="#00FF00" face="Courier, monospace" size="3"><b id="cnt0">0</b></font></td>
+                            <td><font color="#00FF00" face="Courier, monospace" size="3"><b id="cnt1">0</b></font></td>
+                            <td><font color="#00FF00" face="Courier, monospace" size="3"><b id="cnt2">0</b></font></td>
+                            <td><font color="#00FF00" face="Courier, monospace" size="3"><b id="cnt3">0</b></font></td>
+                            <td><font color="#00FF00" face="Courier, monospace" size="3"><b id="cnt4">0</b></font></td>
+                          </tr>
+                        </table>
+                      </font>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+          </table> <!-- End of inner content lock -->
+
+        </td>
+    </tr>
+  </table>
+
+  </div>
+
+  <script type="text/javascript">
+    function showSection(section) {
+      var messages = {
+        rankings: "Coming soon!",
+        reviews: "Coming soon!"
+      };
+
+      var box = document.getElementById("comingSoonBox");
+      var textSpan = document.getElementById("comingSoonText");
+
+      textSpan.innerHTML = messages[section];
+      box.style.display = "block";
+    }
+
+    function goHome() {
+      var box = document.getElementById("comingSoonBox");
+      if (box) { box.style.display = "none"; }
+    }
+
+    (function() {
+      var currentCount = parseInt(localStorage.getItem('tiramreviews_hits') || '1', 10);
+      
+      if (!sessionStorage.getItem('tiramreviews_viewed')) {
+        currentCount++;
+        localStorage.setItem('tiramreviews_hits', currentCount);
+        sessionStorage.setItem('tiramreviews_viewed', 'true');
+      }
+      
+      var countStr = ('00000' + currentCount).slice(-5);
+      
+      for (var i = 0; i < 5; i++) {
+        var el = document.getElementById('cnt' + i);
+        if (el) el.innerText = countStr.charAt(i);
+      }
+    })();
+  </script>
+
+</body>
+</html>
