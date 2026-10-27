@@ -101,7 +101,7 @@
                     <td align="center">
                       <!-- Adjusted font-size up slightly, scaled back the transform stretching, and narrowed character tracking for a cleaner midpoint look -->
                       <h1 style='margin: 10px 0; color: white; font-family: "Arial Black", "Impact", sans-serif; font-size: 3.2rem; font-weight: 900; line-height: 1; letter-spacing: 6px; transform: scaleY(0.85) scaleX(1.15); display: inline-block; text-shadow: 3px 3px #4c007e, 5px 5px #18004b; overflow-wrap: anywhere;'>
-                        TIRAMREVIEWS
+                        TIRAMREVIEW
                       </h1>
                     </td>
                   </tr>
@@ -197,12 +197,12 @@
     }
 
     (function() {
-      var currentCount = parseInt(localStorage.getItem('tiramreviews_hits') || '1', 10);
+      var currentCount = parseInt(localStorage.getItem('tiramreview_hits') || '1', 10);
       
-      if (!sessionStorage.getItem('tiramreviews_viewed')) {
+      if (!sessionStorage.getItem('tiramreview_viewed')) {
         currentCount++;
-        localStorage.setItem('tiramreviews_hits', currentCount);
-        sessionStorage.setItem('tiramreviews_viewed', 'true');
+        localStorage.setItem('tiramreview_hits', currentCount);
+        sessionStorage.setItem('tiramreview_viewed', 'true');
       }
       
       var countStr = ('00000' + currentCount).slice(-5);
